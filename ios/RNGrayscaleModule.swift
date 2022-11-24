@@ -1,14 +1,14 @@
 //
-//  RNModuleTemplateModule.swift
-//  RNModuleTemplateModule
+//  RNGrayscaleModule.swift
+//  RNGrayscaleModule
 //
-//  Copyright © 2022 Alex Demchenko. All rights reserved.
+//  Copyright © 2022 Dwikavindra Haryo Radithya. All rights reserved.
 //
 
 import Foundation
 
-@objc(RNModuleTemplateModule)
-class RNModuleTemplateModule: NSObject {
+@objc(RNGrayscaleModule)
+class RNGrayscaleModule: NSObject {
   @objc
   func constantsToExport() -> [AnyHashable : Any]! {
     return ["count": 1]
