@@ -5,8 +5,14 @@ import android.graphics.BitmapFactory
 import android.graphics.BitmapFactory.Options
 import android.graphics.Color
 import android.util.Base64
+import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.Callback
+import com.facebook.react.bridge.Promise
+
 import java.io.ByteArrayOutputStream
 import java.math.BigInteger
 
@@ -14,15 +20,11 @@ class RNGrayscaleModule(reactContext: ReactApplicationContext) : ReactContextBas
 
     override fun getName() = "RNGrayscaleModule"
 
-    override fun getConstants(): MutableMap<String, Any> {
-        return hashMapOf("count" to 1)
-    }
-
     @ReactMethod
-    private fun createBinaryPixels(base64: String, width: Int, height: Int, callback: Callback) {
+    private fun base64Coloredtobase64Grayscale(base64: String, width: Int, height: Int, callback: Callback) {
         val options = Options()
         options.inJustDecodeBounds = true
-        val code = Base64.decode(url, Base64.DEFAULT)
+        val code = Base64.decode(base64, Base64.DEFAULT)
         val test = BitmapFactory.decodeByteArray(code, 0, code.size)
         options.inJustDecodeBounds = false
         options.inPreferredConfig = Bitmap.Config.ARGB_8888
